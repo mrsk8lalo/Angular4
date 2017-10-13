@@ -1,0 +1,15 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)"><!-- *ngFor nos ayuda a desplegar el arreglo de Heroes y una vez seleccionado una mandamos llamar a la
+      funcion onSelect y le enviamos el hero que y esta seleccionado-->
+    <span class="badge">{{hero.id}}</span> {{hero.name}}<!--Imprimimos el nombre  y el Id-->
+  </li>
+</ul>
+<div *ngIf="selectedHero"><!--Con ngIf si es verdadero se va a desplegar el HTML-->
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
